@@ -143,4 +143,18 @@ Some widely used styles:
    Style](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Coding_Style)
 5. [WebKit Code Style](https://webkit.org/code-style-guidelines/)
 
-#### 
+## vim Options for Indentation
+
+```vim
+set expandtab           " Use spaces instead of tabs
+set shiftwidth=4
+set softtabstop=4
+
+augroup auCXX
+    autocmd!
+    autocmd FileType c,cpp,cs,objc setl cindent
+    autocmd FileType c,cpp,cs,objc setl cst csto=0
+    autocmd FileType c,cpp,cs,objc exe 'setl cino+=:0,l1,(N,t0,L0.5s'
+    autocmd FileType cpp exe 'setl cino+=g0,N-s,i0'
+augroup END
+```
